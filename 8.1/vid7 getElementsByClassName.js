@@ -1,0 +1,3 @@
+// getElementsByClassName pass in a string which includes the name of a class and would select all elements that have that class name.
+// seperate html note: you can give elements multiple classes by seperating them by a space, for example. <p class="p1 p2">sdasdsad</p>, p1 is the first class name and p2 is the second.
+// typing document.getElementsByClassName('p1') will display all the classes with the class of p1. Typing getElementsByClassName('p1 p2') will list all of the elements that have both the class names p1 and p2 not ones which only have p1 or p2 but both.

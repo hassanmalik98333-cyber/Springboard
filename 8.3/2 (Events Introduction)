@@ -1,0 +1,9 @@
+how to write JS code that reacts to different events(click, drag, hover. going to full screen mode, ect...).
+
+DOM events are actions that occur in the browser. Can be user based or having to do with the browser like an image loading.
+
+write code that respond to those events and iss executed when a particular even occurs.
+
+visit the event reference page on MDN.
+
+ex. user hitting arrow keys and things move in the page(like in a browser game). Another is new posts loading when scrolling. New results showing when typing on the search tab on a website. Hover evens, click events.  

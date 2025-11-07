@@ -1,0 +1,48 @@
+body{
+    background-color: gray;
+}
+
+button{
+    background-color: rgb(184, 184, 184);
+
+}
+
+.removeButton{
+    color: rgb(161, 0, 0);
+    font-weight:bold;
+     font-family:cursive;
+     border-radius: 20%;
+  
+
+}
+
+.removeButton:hover{
+    color: rgb(255, 0, 0);
+    transition: all 0.18s;
+}
+
+input{
+    background-color: rgb(180, 180, 180);
+}
+
+h1{
+    font-size: 3em;
+    margin: 0px 1px 20px -3px;
+}
+
+.done{
+    text-decoration:line-through;
+    text-decoration-color: rgb(77, 77, 77);
+    text-decoration-thickness: 3px;
+    color: rgb(85, 85, 85);
+}
+
+li{
+    font-size: 20px;
+    width: fit-content;
+}
+
+
+h2{
+    display: inline-block;
+}

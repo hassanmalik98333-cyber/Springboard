@@ -1,0 +1,3 @@
+// you can do let form = document.querySelector('form'), with this you can look for something specific that is only within form (did querySelector instead of All because there is only one form on the html page in this case) like form.querySelectorAll('button') will only select the buttons inside of the form.
+
+// this is not the best example because you can also do                         document.querySelectorAll('form button') this will select all the buttons inside of all the forms(will only select the forms with a button).
