@@ -2,7 +2,7 @@
 
 // DOM: Document object model
 
-// really difficult(no impossible) to maipulate HTML on a webisite and make interactive webistes.
+// really difficult(not impossible) to maipulate HTML on a webisite and make interactive webistes without DOM.
 
 // when a web page is loaded, the browser generates the DOM for that specific page
 

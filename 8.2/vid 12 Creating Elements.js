@@ -1,4 +1,4 @@
-// there is a method called createElement ot create an element. Pass in the name of the element(img,h1,etx) and it will make an empty element of that type.
+// there is a method called createElement used to create an element. Pass in the name of the element(img,h1,etx) and it will make an empty element of that type.
 
 // ex 
 

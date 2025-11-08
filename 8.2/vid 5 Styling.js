@@ -4,7 +4,7 @@
 
 // note even if you change the CSS property in the css editor(in vs code or anyother code editor) it will still appearblack in the DOM. This is because h1.style only contains the inline styles (the ones that are in line on html).
 
-// you can also change it by doing h1.style.color = 'red' (or a hex code or whatever just has to be a string). If you look at the html oce you do this, it will update the html with an inline style.
+// you can also change it by doing h1.style.color = 'red' (or a hex code or whatever just has to be a string). If you look at the html once you do this, it will update the html with an inline style.
 
 // the javascript version of the css property is different, in JS it is camel case. ex  css: background-color, in JS it is backgroundColor.
 

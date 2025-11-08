@@ -1,6 +1,6 @@
 // how to modify attributes for an element. 
 
-// reminder: an attribut is this type="text", <input type="text">, src, rel, alt, class, etc...
+// reminder: an attribut is this: type="text", <input type="text">, src, rel, alt, class, etc...
 
 // the first one is getAttribute.
 

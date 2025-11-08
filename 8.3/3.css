@@ -1,0 +1,5 @@
+.color{
+    color: brown;
+    font-size: 100px;
+    transition: all 1000ms;
+};

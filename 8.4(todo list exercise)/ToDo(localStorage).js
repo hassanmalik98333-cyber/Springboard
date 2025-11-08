@@ -45,7 +45,7 @@ form.addEventListener('submit', function (e) {
   input.value = '';
   if ((todoArray.length = 0)) {
     localStorage.clear();
-    todoArray = [null];
+    todoArray = [];
   }
   // const newTodo = document.createElement('li');
   // const removeTodo = document.createElement('button');

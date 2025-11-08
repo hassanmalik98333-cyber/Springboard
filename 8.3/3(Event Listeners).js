@@ -70,3 +70,7 @@ btn.addEventListener('click',function(){
     h1.style.color = 'purple';
 }); // with this when you click the button once, the h1 will turn pruple and when you double click the body will turn green(based on the prevouse eventListener).
 
+h1.addEventListener('click',function(e){
+    h1.classList.toggle('color');
+});
+
