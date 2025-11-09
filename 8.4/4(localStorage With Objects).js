@@ -17,7 +17,7 @@ const preferences = {
 
 localStorage.setItem('preferences',JSON.stringify(preferences));// with this when you look at localStorage.preferences, it will show the object in string format.
 
-// to turn it back into an object use the second method JSON.parse.                 JSON.parse(localStorage.preferences), will return the original object that was stringified using JSON.
+// to turn it back into an object use the second method JSON.parse.                               JSON.parse(localStorage.preferences), will return the original object that was stringified using JSON.
 
 // even if I comment all of this out, the localStorage will remain in the web page.
 

@@ -25,7 +25,7 @@ toggleSwitch.addEventListener('click', function(e){
    
     
 
-})
+});
 
 // with this when you reload the page, it will keep the dark mode enables or disabled depending on what the user set it as(using localStorage).
 

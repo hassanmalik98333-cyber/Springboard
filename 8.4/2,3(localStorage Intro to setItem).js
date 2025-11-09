@@ -34,4 +34,4 @@
 
 //1. localStorage.removeItem('name'); will remove just this
 
-//2. localStorage(); will clear everything.
+//2. localStorage.clear(); will clear everything.
