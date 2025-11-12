@@ -1,7 +1,6 @@
 const input = document.querySelector('input');
 const form = document.querySelector('form');
 const todoList = document.querySelector('#todo-list');
-const clearTodo = document.querySelector('#clearTodo');
 const section = document.querySelector('#todo'); 
 
 function listClicked(e){
