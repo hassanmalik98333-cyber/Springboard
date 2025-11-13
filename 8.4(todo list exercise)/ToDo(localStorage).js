@@ -39,8 +39,6 @@ form.addEventListener('submit',function(e){
       };
     todoArray.push(newTodo);
     localStorage.setItem('todoList', JSON.stringify(todoArray));//
-    console.log('localStorage.todoList: ',localStorage.todoList);
-    console.log('todoArray: ',todoArray);
     // add this to add li on the page when the form is submitted
       const newTodoElement = document.createElement('li');
     const removeTodo = document.createElement('button');
@@ -73,25 +71,13 @@ form.addEventListener('submit',function(e){
       
        localStorage.setItem('todoList', JSON.stringify(todoArray));//this saves the updated todoArray into          local storage.
      
-      console.log(foundTodo);
-
-    
-    
-  
-
-} else if(e.target.tagName==='BUTTON'){
+  } else if(e.target.tagName==='BUTTON'){
     e.target.parentElement.remove();
     let identity2 = e.target.parentElement.id;
-     let newTodoArray2 = todoArray.filter(todo => todo.id !== parseInt(identity2));
-     todoArray = newTodoArray2;
+     let newTodoArray = todoArray.filter(todo => todo.id !== parseInt(identity2));
+     todoArray = newTodoArray;
          localStorage.setItem('todoList', JSON.stringify(todoArray));
-         console.log('localStorage.todoList: ',localStorage.todoList);
- console.log('todoArray: ',todoArray);
-
-           
-    
-    
-  };
+     };
 };
 
 todoList.addEventListener('click', function(e){
@@ -101,9 +87,10 @@ todoList.addEventListener('click', function(e){
 
 
 
-console.log('localStorage.todoList: ',localStorage.todoList);
- console.log('todoArray: ',todoArray);
+
 
  //ask ai about objects inside of an array
+
+ // console.log() is a great way to debug, I used it in this code to figure things out.
 
 

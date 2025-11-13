@@ -1,48 +1,176 @@
-body{
-    background-color: gray;
+/* === General Reset & Font === */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, sans-serif;
 }
 
-button{
-     background-color: rgb(184, 184, 184);
-
+body {
+  background: linear-gradient(135deg, #2d3340, #3b4252);
+  color: #eceff4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px 20px;
 }
 
-.removeButton{
-    color: rgb(161, 0, 0);
-    font-weight:bold;
-     font-family:cursive;
-     border-radius: 20%;
-  
-
+/* === Title === */
+h1 {
+  font-size: 2.8em;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  color: #88c0d0;
+  text-shadow: 0 0 10px rgba(136, 192, 208, 0.2);
 }
 
-.removeButton:hover{
-    color: rgb(255, 0, 0);
-    transition: all 0.18s;
+/* === Form === */
+form {
+  display: flex;
+  align-items: center;
+  background-color: #434c5e;
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  gap: 10px;
 }
 
-input{
-    background-color: rgb(180, 180, 180);
+input {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 1rem;
+  color: #eceff4;
+  background-color: #3b4252;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s ease;
 }
 
-h1{
-    font-size: 3em;
-    margin: 0px 1px 20px -3px;
+input:focus {
+  border-color: #88c0d0;
+  background-color: #434c5e;
 }
 
-.done{
-    text-decoration:line-through;
-    text-decoration-color: rgb(77, 77, 77);
-    text-decoration-thickness: 3px;
-    color: rgb(85, 85, 85);
+form button {
+  background-color: #88c0d0;
+  color: #2e3440;
+  border: none;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-li{
-    font-size: 20px;
-    width: fit-content;
+form button:hover {
+  background-color: #8fbcbb;
+  transform: scale(1.05);
 }
 
+/* === Todo Section === */
+section {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 30px;
+  background-color: #434c5e;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
 
-h2{
-    display: inline-block;
+h2 {
+  margin-top: 0;
+  color: #88c0d0;
+  font-size: 1.4em;
+}
+
+/* === Todo List === */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+li {
+  background-color: #3b4252;
+  color: #eceff4;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  transition: all 0.25s ease; /* smooth hover and done animations */
+}
+
+li:hover {
+  background-color: #4c566a;
+  transform: translateY(-1px);
+}
+
+/* === Done State with slight shift === */
+li.done {
+   transform: translateX(0px); /* slight right shift */
+} 
+
+li.don span {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #7b88a1;
+  color: #7b88a1;
+  opacity: 0.7;
+}
+
+/* Smooth text transition */
+li span {
+  transition: all 0.25s ease;
+}
+
+/* === Buttons on each todo === */
+button.removeButton,
+button.editButton {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+button.removeButton:hover {
+  background-color: rgba(255, 76, 76, 0.2);
+  color: #ff4c4c;
+}
+
+button.editButton:hover {
+  background-color: rgba(136, 192, 208, 0.2);
+  color: #88c0d0;
+}
+
+/* === Clear All Button (if you add one) === */
+.clear-all {
+  background-color: #bf616a;
+  color: #eceff4;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.clear-all:hover {
+  background-color: #d08770;
+}
+
+/* Optional checkmark icon for done tasks */
+li.done::before {
+  content: "✔";
+  color: #a3be8c;
+  margin-right: 8px;
+  font-weight: bold;
 }
