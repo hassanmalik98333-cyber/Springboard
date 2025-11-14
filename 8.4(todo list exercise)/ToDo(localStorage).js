@@ -20,7 +20,7 @@ todoArray.forEach(todo => { // same as todoArray.forEach(function(todo) {...
      newTodoElement.appendChild(document.createTextNode(' '));
     newTodoElement.appendChild(removeTodo);
     todoList.appendChild(newTodoElement);
-}); 
+}); //can rewrite this using a for loop(do that for more practise). 
 
 
 
@@ -92,5 +92,7 @@ todoList.addEventListener('click', function(e){
  //ask ai about objects inside of an array
 
  // console.log() is a great way to debug, I used it in this code to figure things out.
+
+ //remember a for loop can itterate through each index position and each object inside of an array.
 
 
