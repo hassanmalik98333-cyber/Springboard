@@ -74,7 +74,7 @@ form.addEventListener('submit',function(e){
   } else if(e.target.tagName==='BUTTON'){
     e.target.parentElement.remove();
     let identity2 = e.target.parentElement.id;
-     let newTodoArray = todoArray.filter(todo => todo.id !== parseInt(identity2));
+     let newTodoArray = todoArray.filter(todo => todo.id != identity2); // if I do !== then I would need          parsInt(identity2).
      todoArray = newTodoArray;
          localStorage.setItem('todoList', JSON.stringify(todoArray));
      };
