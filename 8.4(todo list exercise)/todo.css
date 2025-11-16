@@ -13,6 +13,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 40px 20px;
+  width: 100%;
 }
 
 /* === Title === */
@@ -22,9 +23,11 @@ h1 {
   letter-spacing: 1px;
   color: #88c0d0;
   text-shadow: 0 0 10px rgba(136, 192, 208, 0.2);
+  text-align: center;
+  width: 100%;
 }
 
-/* === Form === */
+/* === Form (Centered Top Part) === */
 form {
   display: flex;
   align-items: center;
@@ -33,6 +36,9 @@ form {
   padding: 12px 16px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
   gap: 10px;
+  width: 100%;
+  max-width: 600px;  /* <— Center and limit width */
+  margin: 0 auto;    /* <— center it */
 }
 
 input {
@@ -61,6 +67,7 @@ form button {
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 form button:hover {
@@ -68,10 +75,9 @@ form button:hover {
   transform: scale(1.05);
 }
 
-/* === Todo Section === */
+/* === Todo Section (Full Width) === */
 section {
   width: 100%;
-  max-width: 500px;
   margin-top: 30px;
   background-color: #434c5e;
   border-radius: 12px;
@@ -85,13 +91,14 @@ h2 {
   font-size: 1.4em;
 }
 
-/* === Todo List === */
+/* === Todo List Wrapper === */
 ul {
   list-style: none;
   padding: 0;
   margin-top: 10px;
 }
 
+/* === Todo Item === */
 li {
   background-color: #3b4252;
   color: #eceff4;
@@ -99,10 +106,24 @@ li {
   padding: 10px 12px;
   border-radius: 8px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column; /* editor below */
   gap: 6px;
-  transition: all 0.25s ease; /* smooth hover and done animations */
+  width: 100%;
+  transition: all 0.25s ease;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Top row: todo text + X button */
+.todo-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+button.removeButton {
+  margin-left: auto; /* X always stays right */
 }
 
 li:hover {
@@ -110,32 +131,56 @@ li:hover {
   transform: translateY(-1px);
 }
 
-/* === Done State with slight shift === */
+/* === Done === */
 li.done {
-   transform: translateX(0px); /* slight right shift */
-} 
-
-li.don span {
-  text-decoration: line-through;
-  text-decoration-thickness: 2px;
-  text-decoration-color: #7b88a1;
-  color: #7b88a1;
-  opacity: 0.7;
+  transform: translateX(4px);
+  opacity: 0.85;
+  color: #a3be8c;
 }
 
-/* Smooth text transition */
+li.done::before {
+  content: "✔ ";
+  color: #a3be8c;
+  font-weight: bold;
+}
+
+/* === Text Wrap === */
 li span {
+  flex: 1;
+  display: inline-block;
   transition: all 0.25s ease;
 }
 
-/* === Buttons on each todo === */
+/* === Edit Form BELOW todo text === */
+.editForm {
+  width: 100%;
+  display: flex;
+  gap: 6px;
+}
+
+.editTodo {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 0.9rem;
+  background-color: #2e3440;
+  color: #eceff4;
+  border: 1px solid #4c566a;
+  border-radius: 6px;
+}
+
+.editTodo:focus {
+  border-color: #88c0d0;
+  background-color: #434c5e;
+}
+
+/* === Buttons === */
 button.removeButton,
 button.editButton {
   background: none;
   border: none;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   cursor: pointer;
-  padding: 4px 8px;
+  padding: 6px 8px;
   border-radius: 6px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -150,7 +195,7 @@ button.editButton:hover {
   color: #88c0d0;
 }
 
-/* === Clear All Button (if you add one) === */
+/* === Clear All === */
 .clear-all {
   background-color: #bf616a;
   color: #eceff4;
@@ -165,12 +210,4 @@ button.editButton:hover {
 
 .clear-all:hover {
   background-color: #d08770;
-}
-
-/* Optional checkmark icon for done tasks */
-li.done::before {
-  content: "✔";
-  color: #a3be8c;
-  margin-right: 8px;
-  font-weight: bold;
 }

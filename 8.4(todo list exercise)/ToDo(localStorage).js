@@ -6,10 +6,33 @@ const section = document.querySelector('#todo');
 let todoArray = JSON.parse(localStorage.getItem('todoList')) || []; 
 
 
-todoArray.forEach(todo => { // same as todoArray.forEach(function(todo) {... 
-    const newTodoElement = document.createElement('li');
+// todoArray.forEach(todo => { // same as todoArray.forEach(function(todo) {... 
+//     const newTodoElement = document.createElement('li');
+//     const removeTodo = document.createElement('button');
+//     removeTodo.classList.add('removeButton');
+//     //to take the class from localStorage
+//     if(todo.done === true){
+//       newTodoElement.classList.add('done');
+//     };
+//     newTodoElement.innerText = todo.task;
+//     newTodoElement.id = todo.id;//this adds the id to the element on page refresh.
+//       removeTodo.innerText ='X';
+//      newTodoElement.appendChild(document.createTextNode(' '));
+//     newTodoElement.appendChild(removeTodo);
+//     todoList.appendChild(newTodoElement);
+// }); //can rewrite this using a for of loop(do that for more practise). 
+// // forEach is simpiler but a for of loop is overall better to loop through an array.
+
+for (let todo of todoArray){
+   const newTodoElement = document.createElement('li');
     const removeTodo = document.createElement('button');
+    const editTodo = document.createElement('input');
+    const editButton = document.createElement('button');
+    const editForm = document.createElement('form');
+    editButton.classList.add('editButton');
+    editTodo.classList.add('editTodo');
     removeTodo.classList.add('removeButton');
+     editForm.classList.add('editForm');
     //to take the class from localStorage
     if(todo.done === true){
       newTodoElement.classList.add('done');
@@ -17,16 +40,16 @@ todoArray.forEach(todo => { // same as todoArray.forEach(function(todo) {...
     newTodoElement.innerText = todo.task;
     newTodoElement.id = todo.id;//this adds the id to the element on page refresh.
       removeTodo.innerText ='X';
+      editButton.innerText = 'Edit Todo';
+    editForm.append(editTodo,editButton);
      newTodoElement.appendChild(document.createTextNode(' '));
+     newTodoElement.appendChild(editForm);
     newTodoElement.appendChild(removeTodo);
     todoList.appendChild(newTodoElement);
-}); //can rewrite this using a for loop(do that for more practise). 
+      
+}; // for of loop version, pretty much the same.
 
-
-
-
- 
-// the todo represents each index position inside of the array (remember this) so it itterats through each index position in the array.
+// the todo represents each index position inside of the array (remember this) so it itterats through each index position in the array(loops through the entire array).
 
 form.addEventListener('submit',function(e){
     e.preventDefault();
@@ -38,15 +61,23 @@ form.addEventListener('submit',function(e){
          done: false
       };
     todoArray.push(newTodo);
-    localStorage.setItem('todoList', JSON.stringify(todoArray));//
-    // add this to add li on the page when the form is submitted
+    localStorage.setItem('todoList', JSON.stringify(todoArray));                          // add this to add li on the page when the form is submitted
       const newTodoElement = document.createElement('li');
     const removeTodo = document.createElement('button');
+    const editTodo = document.createElement('input');
+    const editButton = document.createElement('button');
+    const editForm = document.createElement('form');
+    editForm.classList.add('editForm');
+    editButton.classList.add('editButton');
+    editTodo.classList.add('editTodo');
     removeTodo.classList.add('removeButton');
     newTodoElement.innerText = inputValue;
     newTodoElement.id = newTodo.id; // this adds the id to the element right away without needing to refresh.
     removeTodo.innerText ='X';
+    editButton.innerText = 'Edit Todo';
+    editForm.append(editTodo,editButton);
      newTodoElement.appendChild(document.createTextNode(' '));
+     newTodoElement.appendChild(editForm);
     newTodoElement.appendChild(removeTodo);
     todoList.appendChild(newTodoElement);
       
@@ -67,17 +98,46 @@ form.addEventListener('submit',function(e){
        } else if(foundTodo.done === true){
         foundTodo.done = false;
        };
-      };// at the end of this code, the isolatd objectis updates and todoArray is updated.
+      };// at the end of this code, the isolatd object is updated and todoArray is updated.
       
-       localStorage.setItem('todoList', JSON.stringify(todoArray));//this saves the updated todoArray into          local storage.
+       localStorage.setItem('todoList', JSON.stringify(todoArray));//this saves the updated todoArray into         local storage.
      
-  } else if(e.target.tagName==='BUTTON'){
+  } else if(e.target.classList.contains('removeButton')){
     e.target.parentElement.remove();
     let identity2 = e.target.parentElement.id;
      let newTodoArray = todoArray.filter(todo => todo.id != identity2); // if I do !== then I would need          parsInt(identity2).
      todoArray = newTodoArray;
          localStorage.setItem('todoList', JSON.stringify(todoArray));
-     };
+     } else if(e.target.classList.contains('editButton')){
+       e.preventDefault();
+      let initialTodo = e.target.parentElement.parentElement;
+      let identity3 = initialTodo.id;
+      let foundTodo2 =todoArray.find(todo => todo.id === parseInt(identity3));
+         let todoEditInput = e.target.previousElementSibling;
+       if(todoEditInput.value.trim() !==''){
+    const removeTodo = document.createElement('button');
+    const editTodo = document.createElement('input');
+    const editButton = document.createElement('button');
+    const editForm = document.createElement('form');
+    editForm.classList.add('editForm');
+    editButton.classList.add('editButton');
+    editTodo.classList.add('editTodo');
+    removeTodo.classList.add('removeButton');
+       initialTodo.innerText = todoEditInput.value;
+    removeTodo.innerText ='X';
+    editButton.innerText = 'Edit Todo';
+    editForm.append(editTodo,editButton);
+     initialTodo.appendChild(document.createTextNode(' '));
+    initialTodo.appendChild(editForm);
+    initialTodo.appendChild(removeTodo);
+    foundTodo2.task = todoEditInput.value;
+    foundTodo2.done = false;
+    initialTodo.classList.remove('done');
+    localStorage.setItem('todoList', JSON.stringify(todoArray));
+    };
+     todoEditInput.value = '';
+    };
+
 };
 
 todoList.addEventListener('click', function(e){
@@ -89,10 +149,10 @@ todoList.addEventListener('click', function(e){
 
 
 
+
  //ask ai about objects inside of an array
 
  // console.log() is a great way to debug, I used it in this code to figure things out.
 
  //remember a for loop can itterate through each index position and each object inside of an array.
-
 
